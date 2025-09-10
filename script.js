@@ -18,7 +18,7 @@ const questions = [
       "Central Style Sheets",
       "Cascading Style Sheets",
       "Cascading Simple Sheets",
-      "Cars SUVs Sailboats"
+      "Carl Santosh Subash"
     ],
     answer: 1
   },
@@ -105,20 +105,18 @@ function loadQuestion(index) {
   questionBox.innerHTML = `
     <h2>Q${index + 1}. ${q.question}</h2>
     <div class="options">
-      ${q.options
-        .map(
-          (opt, i) => `
+      ${q.options.map((opt, i) => `
         <label>
           <input type="radio" name="option" value="${i}" ${
             userAnswers[index] === i ? "checked" : ""
           }>
           ${opt}
         </label>
-      `
-        )
-        .join("")}
+      `).join("")}
     </div>
   `;
+// ${q.options.map((opt,i)=>`<label>`)}
+
 
   questionBox.querySelectorAll("input[name='option']").forEach(inp => {
     inp.addEventListener("change", () => {
@@ -166,16 +164,17 @@ document.getElementById("submit-btn").addEventListener("click", () => {
     <div>You scored <strong>${score}</strong> / ${total}</div>
     <div>Answered: ${answered} | Marked for review: ${review}</div>
     <div class="summary" style="margin-top:8px">
-      ${questions
-        .map((q, i) => {
+      ${questions.map((q, i) => {
           const ua = userAnswers[i];
           const correct = q.answer;
-          const status =
-            ua === null
-              ? "Unanswered"
-              : ua === correct
-              ? "Correct"
-              : "Wrong";
+          let status;
+          if (ua===null){
+            status="Unanswered"
+          }else if(ua===correct){
+            status="Correct"
+          }else{
+            status="Wrong"
+          }
           return `<div>
             Q${i + 1}: ${status} ${
             ua !== null ? `(Your: ${q.options[ua]})` : ""
@@ -183,8 +182,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
             status !== "Correct" ? ` - Ans: ${q.options[correct]}` : ""
           }
           </div>`;
-        })
-        .join("")}
+        }).join("")}
     </div>
   `;
 });
