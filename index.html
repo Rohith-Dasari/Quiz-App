@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Quiz APP</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="quiz-wrapper">
+        <aside class="sidebar">
+            <h3>Questions</h3>
+            <div id="q-stats" class="q-stats"></div>
+            <div id="question-nav" class="question-nav"></div>
+            <div class="legend">
+                <span class="legend-item"><span class="dot default"></span> Not Attempted</span>
+                <span class="legend-item"><span class="dot answered"></span> Answered</span>
+                <span class="legend-item"><span class="dot review"></span> Marked for Review</span>
+            </div>
+        </aside>
+        <main class="quiz-container">
+            <h1>Quiz Application</h1>
+            <div id="question-box" class="question-box"></div>
+            <div class="controls">
+                <button id="prev-btn" class="btn">Previous</button>
+                <button id="clear-btn" class="btn">Clear Response</button>
+                <button id="mark-btn" class="btn">Mark for Review</button>
+                <button id="next-btn" class="btn">Next</button>
+            </div>
+            <br>
+            <br>
+            <div id="submit-section" class="submit-section">
+                <button id="submit-btn" class="btn">Submit Quiz</button>
+            </div>
+            <div id="result" class="result"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
